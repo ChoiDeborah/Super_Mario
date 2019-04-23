@@ -6,7 +6,7 @@ namespace OBJID
 }
 
 
-namespace BACKROUNDID
+namespace BACKGROUNDID
 {
 	enum ID {ITEM, TILE, END};
 }

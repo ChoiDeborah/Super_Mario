@@ -149,11 +149,14 @@
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="BackGroundMgr.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Coin.h" />
     <ClInclude Include="CollisionMgr.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Extern.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemFlower.h" />
+    <ClInclude Include="Life_Mushroom.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Mario.h" />
     <ClInclude Include="Monster.h" />
@@ -161,6 +164,7 @@
     <ClInclude Include="ObjMgr.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SizeUp_Mushroom.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="targetver.h" />
@@ -171,14 +175,18 @@
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="BackGroundMgr.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Coin.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemFlower.cpp" />
+    <ClCompile Include="Life_Mushroom.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Obj.cpp" />
     <ClCompile Include="ObjMgr.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SizeUp_Mushroom.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

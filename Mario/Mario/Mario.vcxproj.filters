@@ -37,6 +37,21 @@
     <Filter Include="01.Obj\BackGround">
       <UniqueIdentifier>{e205c185-81f5-444c-b92f-380cc4e5352c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Obj\Item\Coin">
+      <UniqueIdentifier>{bcab63e6-e4b0-47be-a3ab-3d4a3a060761}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Obj\Item\ItemFlower">
+      <UniqueIdentifier>{4720d708-43ad-42cd-a4e4-f27070f7d69a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Obj\Item\Life_Mushroom">
+      <UniqueIdentifier>{2f4013b3-3162-4cf7-a7ff-d4a3fc5e1b20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Obj\Item\SizeUp_Mushroom">
+      <UniqueIdentifier>{cb760974-2d5d-401a-834f-82f27bb56e79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Obj\Monster\Gumba">
+      <UniqueIdentifier>{9128f7a5-ecfa-4409-ad16-3ec75ef7fcf2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -105,6 +120,18 @@
     <ClInclude Include="BackGroundMgr.h">
       <Filter>97.Manager</Filter>
     </ClInclude>
+    <ClInclude Include="Coin.h">
+      <Filter>01.Obj\Item\Coin</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemFlower.h">
+      <Filter>01.Obj\Item\ItemFlower</Filter>
+    </ClInclude>
+    <ClInclude Include="Life_Mushroom.h">
+      <Filter>01.Obj\Item\Life_Mushroom</Filter>
+    </ClInclude>
+    <ClInclude Include="SizeUp_Mushroom.h">
+      <Filter>01.Obj\Item\SizeUp_Mushroom</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mario.cpp">
@@ -145,6 +172,18 @@
     </ClCompile>
     <ClCompile Include="BackGroundMgr.cpp">
       <Filter>97.Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Coin.cpp">
+      <Filter>01.Obj\Item\Coin</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemFlower.cpp">
+      <Filter>01.Obj\Item\ItemFlower</Filter>
+    </ClCompile>
+    <ClCompile Include="Life_Mushroom.cpp">
+      <Filter>01.Obj\Item\Life_Mushroom</Filter>
+    </ClCompile>
+    <ClCompile Include="SizeUp_Mushroom.cpp">
+      <Filter>01.Obj\Item\SizeUp_Mushroom</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

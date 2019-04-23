@@ -1,6 +1,24 @@
-﻿  Player.cpp
+﻿  stdafx.cpp
+  Tile.cpp
+  SizeUp_Mushroom.cpp
+  Player.cpp
 c:\users\administrator.jusin-20180208b\super_mario\mario\mario\player.cpp(134): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
 c:\users\administrator.jusin-20180208b\super_mario\mario\mario\player.cpp(154): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
 c:\users\administrator.jusin-20180208b\super_mario\mario\mario\player.cpp(177): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ObjMgr.cpp
+  Obj.cpp
+  Monster.cpp
+  Mario.cpp
+  MainGame.cpp
+  Life_Mushroom.cpp
+  ItemFlower.cpp
+  Item.cpp
+  CollisionMgr.cpp
+  Coin.cpp
+  Bullet.cpp
+  BackGroundMgr.cpp
+  BackGround.cpp
+  코드를 생성하고 있습니다...
+c:\users\administrator.jusin-20180208b\super_mario\mario\mario\backgroundmgr.cpp(34): warning C4717: 'CBackGroundMgr::Release': 모든 제어 경로에서 재귀적입니다. 함수로 인해 런타임 스택 오버플로가 발생합니다.
   Mario.vcxproj -> C:\Users\Administrator.JUSIN-20180208B\Super_Mario\Mario\Debug\Mario.exe
   Mario.vcxproj -> C:\Users\Administrator.JUSIN-20180208B\Super_Mario\Mario\Debug\Mario.pdb (Full PDB)
