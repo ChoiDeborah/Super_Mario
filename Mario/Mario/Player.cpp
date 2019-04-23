@@ -125,6 +125,8 @@ void CPlayer::IsJumping()
 	}
 	else if (bIsColl)
 	{
-		m_tInfo.fY = fy;
+		//m_tInfo.fY = fy;
 	}
+
+	//m_tInfo.fY = fy;
 }
