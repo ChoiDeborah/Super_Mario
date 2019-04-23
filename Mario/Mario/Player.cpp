@@ -43,34 +43,15 @@ int CPlayer::Update()
 
 	if (GetAsyncKeyState(VK_LEFT))
 	{
-		if (m_bIsRuning)
-		{
-			m_tInfo.fX -= (m_fSpeed + m_fForce2);
-		}
-		else
-		{
-			
-			m_tInfo.fX -= m_fSpeed;
-			CBackGroundMgr::Get_Instance()->Scroll_BackGround(m_fSpeed);
-			CLineMgr::Get_Instance()->UpdateLine(m_fSpeed);
-
-			
-		}
+		m_tInfo.fX -= m_fSpeed;
+		CBackGroundMgr::Get_Instance()->Scroll_BackGround(m_fSpeed);
+		CLineMgr::Get_Instance()->UpdateLine(m_fSpeed);
 	}
 	if (GetAsyncKeyState(VK_RIGHT))
 	{
-		if(m_bIsRuning)
-		{
-			m_tInfo.fX += (m_fSpeed + m_fForce2);
-		}
-		else
-		{
-			m_tInfo.fX += m_fSpeed;
-
-			CBackGroundMgr::Get_Instance()->Scroll_BackGround(-m_fSpeed);
-			CLineMgr::Get_Instance()->UpdateLine(-m_fSpeed);
-			
-		}
+		m_tInfo.fX += m_fSpeed;
+		CBackGroundMgr::Get_Instance()->Scroll_BackGround(-m_fSpeed);
+		CLineMgr::Get_Instance()->UpdateLine(-m_fSpeed);
 	}
 
 	if (GetAsyncKeyState(VK_SPACE))
@@ -78,34 +59,23 @@ int CPlayer::Update()
 	 	m_bIsJump = true;	
 	}
 
-
-	if (GetAsyncKeyState('Z'))
-	{
-		m_bIsRuning = true;
-	}
-	else
-	{
-		if (m_bIsRuning) {
-			m_bIsRuning = false;
-		
-			m_fForce2 = 0.f;
-		}
-	}
-
-
 	return OBJ_NOEVENT;
 }
 
 void CPlayer::LateUpdate()
 {
+	/*
 	float fy = 0.f;
-	CLineMgr::Get_Instance()->LineCollision(m_tInfo.fX, m_tInfo.fY, &fy, m_tInfo.fCY);
+	bool isCol = CLineMgr::Get_Instance()->LineCollision(m_tInfo.fX, m_tInfo.fY, &fy, m_tInfo.fCY);*/
 	
-	IsJumping();
-	if (m_bIsRuning)
+	//if(isCol)
+	//	m_tInfo.fY = fy;
+
+ 	IsJumping();
+	/*if (m_bIsRuning)
 	{
 		Run();
-	}
+	}*/
 }
 
 void CPlayer::Run()
@@ -137,26 +107,24 @@ void CPlayer::IsJumping()
 {
 	float fy = 0.f;
 	bool bIsColl = CLineMgr::Get_Instance()->LineCollision(m_tInfo.fX, m_tInfo.fY, &fy, m_tInfo.fCY);
-
+	
 	// 사용자가 점프를 눌렀을때!
 	if (m_bIsJump)
 	{
 		// 자유낙하 공식 사용 
 		// y= 힘 * sin@(1이라 생략) * 시간 - 1/2 * 중력 * 시간 * 시간;
 		m_tInfo.fY -= m_fJumpPower * m_fJumpAccel - GRAVITY * m_fJumpAccel * m_fJumpAccel * 0.5f;
-
 		m_fJumpAccel += 0.21f;
 
-		if (bIsColl && m_tInfo.fY > fy)
+		if (bIsColl)
 		{
 			m_bIsJump = false;
 			m_fJumpAccel = 0.f;
-
-			//m_tInfo.fY = fy;
+			m_tInfo.fY = fy;
 		}
 	}
 	else if (bIsColl)
 	{
-			m_tInfo.fY = fy;
+		m_tInfo.fY = fy;
 	}
 }

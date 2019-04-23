@@ -36,6 +36,15 @@ void CLineMgr::Initialize()
 		}
 	}
 
+	//// for test
+	//// result가 무슨 값을 반환하는지 확인하자
+	//// P(300,300) 은 선분 P1(200,400) P2(200,400) 위에 있다
+	//LINEPOS P = { 300,400 };
+	//LINEPOS P1 = { 200 , 400 };
+	//LINEPOS P2 = { 400,400 };
+
+	//UnderLine(P1, P2, P.fx, P.fy);
+
 	
 	//m_listLine.emplace_back(new CLine(LINEINFO(tPosArr[1], tPosArr[2])));
 	//m_listLine.emplace_back(new CLine(LINEINFO(tPosArr[2], tPosArr[3])));
@@ -86,7 +95,8 @@ bool CLineMgr::LineCollision(float fInX, float fInY, float * pOutY , float sizeY
 		{
 			if(UnderLine(pLine->Get_LineInfo().tLeftPoint, pLine->Get_LineInfo().tRightPoint, fInX, fInY))
 			{
-				pTarget = pLine;
+ 				pTarget = pLine;
+				break;
 			}
 		}
 	}
@@ -106,10 +116,10 @@ bool CLineMgr::LineCollision(float fInX, float fInY, float * pOutY , float sizeY
 bool CLineMgr::UnderLine(LINEPOS _P1, LINEPOS _P2 , float fX, float fY)
 {
 	
-	int iResult = (_P1.fx - _P1.fy) / (_P2.fx - _P1.fx) * (fX - _P1.fx) + _P1.fy - fY;
+	int iResult = (_P2.fy - _P1.fy) / (_P2.fx - _P1.fx) * (fX - _P1.fx) + _P1.fy - fY;
 
-	if (iResult < 0)
-		return true;
+	if (iResult <= 0)
+ 		return true;
 
 	return false;
 
