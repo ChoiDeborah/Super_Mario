@@ -8,6 +8,7 @@
 #include "ObjMgr.h"
 #include "CollisionMgr.h"
 #include "BackGroundMgr.h"
+#include "LineMgr.h"
 #include "Coin.h"
 #include "ItemFlower.h"
 #include "Life_Mushroom.h"
@@ -31,7 +32,7 @@ void CMainGame::Initialize()
 	m_hDC = GetDC(g_hWnd);
 
 	CObjMgr::Get_Instance()->AddObject(OBJID::PLAYER, CAbstractFactory<CPlayer>::Create());
-
+	CLineMgr::Get_Instance()->Initialize();
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM, CAbstractFactory<CItem>::Create(50, 500));
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM, CAbstractFactory<CItem>::Create(100, 500));
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM, CAbstractFactory<CItem>::Create(150, 500));
@@ -63,6 +64,7 @@ void CMainGame::LateUpdate()
 {
 	CObjMgr::Get_Instance()->LateUpdate();
 	CBackGroundMgr::Get_Instance()->LateUpdate();
+
 }
 
 void CMainGame::Render()
@@ -78,4 +80,5 @@ void CMainGame::Release()
 	ReleaseDC(g_hWnd, m_hDC);
 	CObjMgr::Destory_Instance();
 	CBackGroundMgr::Get_Instance()->Destroy_Instance();
+	CLineMgr::Destroy_Instance();
 }

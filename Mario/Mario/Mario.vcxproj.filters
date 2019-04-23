@@ -52,6 +52,9 @@
     <Filter Include="01.Obj\Monster\Gumba">
       <UniqueIdentifier>{9128f7a5-ecfa-4409-ad16-3ec75ef7fcf2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.Line">
+      <UniqueIdentifier>{ec611790-8405-472d-a9a6-646d51fc8687}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -132,6 +135,15 @@
     <ClInclude Include="SizeUp_Mushroom.h">
       <Filter>01.Obj\Item\SizeUp_Mushroom</Filter>
     </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>02.Line</Filter>
+    </ClInclude>
+    <ClInclude Include="LineMgr.h">
+      <Filter>97.Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyMgr.h">
+      <Filter>97.Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mario.cpp">
@@ -184,6 +196,15 @@
     </ClCompile>
     <ClCompile Include="SizeUp_Mushroom.cpp">
       <Filter>01.Obj\Item\SizeUp_Mushroom</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>02.Line</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyMgr.cpp">
+      <Filter>97.Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="LineMgr.cpp">
+      <Filter>97.Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

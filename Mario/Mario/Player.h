@@ -25,11 +25,15 @@ public:
 	}
 
 public:
-	void Jump();
+	//void Jump();
 	void Run();
 public:
 	void Set_BulletList(list<CObj*>* plistBullet) { m_plistBullet = plistBullet; }
-	bool IsLine(POINT _P1, POINT _P2);
+	//bool IsLine(POINT _P1, POINT _P2);
+
+public:
+	void IsJumping();
+	//void KeyCheck();
 
 private:
 	list<CObj*>* m_plistBullet;
@@ -40,6 +44,9 @@ private:
 	float m_fGuideHeight;
 	bool m_bIsRuning;
 	float m_fForce2;
+
+	float m_fJumpPower; // 물리에서 v가 되겠다. 
+	float m_fJumpAccel; // 이게 이제 t가 되겠다. 가속도. 
 
 
 

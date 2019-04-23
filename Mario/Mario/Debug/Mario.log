@@ -1,27 +1,8 @@
-﻿  stdafx.cpp
-  Tile.cpp
-  SizeUp_Mushroom.cpp
-c:\users\administrator.jusin-20180206t\source\repos\choideborah\super_mario\mario\mario\sizeup_mushroom.cpp(53): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Player.cpp
-c:\users\administrator.jusin-20180206t\source\repos\choideborah\super_mario\mario\mario\player.cpp(137): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
-c:\users\administrator.jusin-20180206t\source\repos\choideborah\super_mario\mario\mario\player.cpp(157): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
-c:\users\administrator.jusin-20180206t\source\repos\choideborah\super_mario\mario\mario\player.cpp(180): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  ObjMgr.cpp
-  Obj.cpp
-  Monster.cpp
-  Mario.cpp
-  MainGame.cpp
-  Life_Mushroom.cpp
-c:\users\administrator.jusin-20180206t\source\repos\choideborah\super_mario\mario\mario\life_mushroom.cpp(51): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  ItemFlower.cpp
-c:\users\administrator.jusin-20180206t\source\repos\choideborah\super_mario\mario\mario\itemflower.cpp(51): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Item.cpp
-  CollisionMgr.cpp
-  Coin.cpp
-c:\users\administrator.jusin-20180206t\source\repos\choideborah\super_mario\mario\mario\coin.cpp(51): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Bullet.cpp
-  BackGroundMgr.cpp
-  BackGround.cpp
+﻿  Player.cpp
+c:\users\administrator.jusin-20180206t\source\repos\choideborah\super_mario\mario\mario\player.cpp(144): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+  LineMgr.cpp
   코드를 생성하고 있습니다...
+  건너뛰고 있습니다... (관련된 변경 내용 없음)
+  MainGame.cpp
   Mario.vcxproj -> C:\Users\Administrator.JUSIN-20180206T\Source\Repos\ChoiDeborah\Super_Mario\Mario\Debug\Mario.exe
   Mario.vcxproj -> C:\Users\Administrator.JUSIN-20180206T\Source\Repos\ChoiDeborah\Super_Mario\Mario\Debug\Mario.pdb (Full PDB)

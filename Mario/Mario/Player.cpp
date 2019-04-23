@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Player.h"
 #include "BackGroundMgr.h"
+#include "ObjMgr.h"
+#include "LineMgr.h"
 
 
 CPlayer::CPlayer()
@@ -32,6 +34,9 @@ void CPlayer::Initialize()
 
 	m_bIsJump = false;
 	m_bIsRuning = false;
+
+	m_fJumpAccel = 0.f;
+	m_fJumpPower = 15.f;
 }
 
 int CPlayer::Update()
@@ -72,7 +77,14 @@ int CPlayer::Update()
 		}
 	}
 
-	if (m_bIsJump)
+	if (GetAsyncKeyState(VK_SPACE))
+	{
+		
+	 	m_bIsJump = true;
+		
+	}
+
+	/*if (m_bIsJump)
 	{
 		if (m_tInfo.fX >= P1.x && m_tInfo.fX <= P2.x && IsLine(P1, P2))
 			m_bIsJump = false;
@@ -92,6 +104,8 @@ int CPlayer::Update()
 			m_bIsJump = true;
 		}
 	}
+*/
+
 
 	if (GetAsyncKeyState('Z'))
 	{
@@ -106,20 +120,13 @@ int CPlayer::Update()
 		}
 	}
 
-	
-
-
 
 	return OBJ_NOEVENT;
 }
 
 void CPlayer::LateUpdate()
 {
-	if (m_bIsJump)
-	{
-		Jump();
-	}
-
+	IsJumping();
 	if (m_bIsRuning)
 	{
 		Run();
@@ -152,36 +159,38 @@ void CPlayer::Release()
 {
 }
 
-void CPlayer::Jump()
+//bool CPlayer::IsLine(POINT _P1, POINT _P2)
+//{
+//	int iResult = (_P1.y - _P1.y) / (_P2.x - _P1.x) * (m_tInfo.fX - _P1.x) + _P1.y - m_tInfo.fY;
+//
+//	if (iResult <= 0)
+//		return true;
+//
+//	return false;
+//
+//}
+
+void CPlayer::IsJumping()
 {
-	m_fTime += 0.1;
+	float fy = 0.f;
+	bool bIsColl = CLineMgr::Get_Instance()->LineCollision(m_tInfo.fX, &fy, m_tInfo.fCY);
 
-	float a = (m_fForce *m_fTime);
-
-	float b = (10.f * (m_fTime * m_fTime));
-
-	float y = m_fGuideHeight;
-
-	if (m_tInfo.fY <= y)
+	// 사용자가 점프를 눌렀을때!
+	if (m_bIsJump)
 	{
-		m_tInfo.fY -= a - b;
+		// 자유낙하 공식 사용 
+		// y= 힘 * sin@(1이라 생략) * 시간 - 1/2 * 중력 * 시간 * 시간;
+		m_tInfo.fY -= m_fJumpPower * m_fJumpAccel - GRAVITY * m_fJumpAccel * m_fJumpAccel * 0.5f;
 
-		if (m_tInfo.fY > y)
+		m_fJumpAccel += 0.21f;
+
+		if (bIsColl && m_tInfo.fY > fy)
 		{
-			m_tInfo.fY = y;
 			m_bIsJump = false;
-			m_fTime = 0;
+			m_fJumpAccel = 0.f;
+			m_tInfo.fY = fy;
 		}
 	}
-}
-
-bool CPlayer::IsLine(POINT _P1, POINT _P2)
-{
-	int iResult = (_P1.y - _P1.y) / (_P2.x - _P1.x) * (m_tInfo.fX - _P1.x) + _P1.y - m_tInfo.fY;
-
-	if (iResult <= 0)
-		return true;
-
-	return false;
-
+	else if (bIsColl)
+		m_tInfo.fY = fy;
 }

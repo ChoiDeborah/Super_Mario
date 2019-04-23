@@ -31,12 +31,12 @@ public:
 	void LateUpdate();
 	void Render(HDC hDC);
 	void Release();
-
 	void Scroll_BackGround(float _fSpeed);
 
+	OBJLIST m_Backgroundlist[BACKGROUNDID::END];
 private:
 	static CBackGroundMgr* m_pInstance;
 	// 배경에 올 것 저장하는 배열들
-	OBJLIST m_Backgroundlist[BACKGROUNDID::END];
+	
 };
 

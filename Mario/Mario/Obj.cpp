@@ -9,6 +9,7 @@ CObj::CObj()
 {
 	ZeroMemory(&m_tInfo, sizeof(INFO));
 	ZeroMemory(&m_tRect, sizeof(RECT));
+	ZeroMemory(&m_tLineInfo, sizeof(LINEINFO));
 }
 
 

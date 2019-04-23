@@ -156,7 +156,10 @@
     <ClInclude Include="Extern.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFlower.h" />
+    <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="Life_Mushroom.h" />
+    <ClInclude Include="Line.h" />
+    <ClInclude Include="LineMgr.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Mario.h" />
     <ClInclude Include="Monster.h" />
@@ -179,7 +182,10 @@
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemFlower.cpp" />
+    <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="Life_Mushroom.cpp" />
+    <ClCompile Include="Line.cpp" />
+    <ClCompile Include="LineMgr.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="Monster.cpp" />
