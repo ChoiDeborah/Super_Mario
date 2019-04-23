@@ -33,14 +33,7 @@ int CSizeUp_Mushroom::Update()
 
 void CSizeUp_Mushroom::LateUpdate()
 {
-	CObj::UpdateRect();
-	if (0 >= m_tRect.left ||
-		0 >= m_tRect.top ||
-		WINCX <= m_tRect.right ||
-		WINCY <= m_tRect.bottom)
-	{
-		m_bIsDead = true;
-	}
+	
 }
 
 void CSizeUp_Mushroom::Render(HDC hDC)

@@ -31,14 +31,7 @@ int CItemFlower::Update()
 
 void CItemFlower::LateUpdate()
 {
-	CObj::UpdateRect();
-	if (0 >= m_tRect.left ||
-		0 >= m_tRect.top ||
-		WINCX <= m_tRect.right ||
-		WINCY <= m_tRect.bottom)
-	{
-		m_bIsDead = true;
-	}
+	
 }
 
 void CItemFlower::Render(HDC hDC)

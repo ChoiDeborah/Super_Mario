@@ -1,4 +1,7 @@
 #pragma once
 class CObj;
-typedef  list<CObj*>		OBJLIST;
-typedef  OBJLIST::iterator	OBJITER;
+class CLine;
+typedef		list<CObj*>		OBJLIST;
+typedef		OBJLIST::iterator	OBJITER;
+typedef		list<CLine*>	LINELIST;
+typedef		LINELIST::iterator	LINEITER;

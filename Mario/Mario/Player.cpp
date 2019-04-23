@@ -49,8 +49,12 @@ int CPlayer::Update()
 		}
 		else
 		{
-			CBackGroundMgr::Get_Instance()->Scroll_BackGround(m_fSpeed);
+			
 			m_tInfo.fX -= m_fSpeed;
+			CBackGroundMgr::Get_Instance()->Scroll_BackGround(m_fSpeed);
+			CLineMgr::Get_Instance()->UpdateLine(m_fSpeed);
+
+			
 		}
 	}
 	if (GetAsyncKeyState(VK_RIGHT))
@@ -61,8 +65,11 @@ int CPlayer::Update()
 		}
 		else
 		{
-			CBackGroundMgr::Get_Instance()->Scroll_BackGround(-m_fSpeed);
 			m_tInfo.fX += m_fSpeed;
+
+			CBackGroundMgr::Get_Instance()->Scroll_BackGround(-m_fSpeed);
+			CLineMgr::Get_Instance()->UpdateLine(-m_fSpeed);
+			
 		}
 	}
 
@@ -141,9 +148,12 @@ void CPlayer::IsJumping()
 		{
 			m_bIsJump = false;
 			m_fJumpAccel = 0.f;
-			m_tInfo.fY = fy;
+
+			//m_tInfo.fY = fy;
 		}
 	}
 	else if (bIsColl)
+	{
 		m_tInfo.fY = fy;
+	}
 }

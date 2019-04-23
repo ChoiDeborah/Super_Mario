@@ -26,6 +26,7 @@ public:
 	void Initialize();
 	void Render(HDC hDC);
 	void Release();
+	void UpdateLine(float _fSpeed);
 public:
 	bool LineCollision(float fInX, float* pOutY, float sizeY);
 
@@ -33,6 +34,7 @@ public:
 private:
 	static CLineMgr* m_pInstance;
 	list<CLine*> m_listLine;
+	LINEPOS tPosGround[2];
 
 };
 

@@ -1,4 +1,4 @@
 ﻿  LineMgr.cpp
-c:\users\administrator.jusin-20180206t\source\repos\choideborah\super_mario\mario\mario\linemgr.cpp(109): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\administrator.jusin-20180206t\source\repos\choideborah\super_mario\mario\mario\linemgr.cpp(113): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Mario.vcxproj -> C:\Users\Administrator.JUSIN-20180206T\Source\Repos\ChoiDeborah\Super_Mario\Mario\Debug\Mario.exe
   Mario.vcxproj -> C:\Users\Administrator.JUSIN-20180206T\Source\Repos\ChoiDeborah\Super_Mario\Mario\Debug\Mario.pdb (Full PDB)

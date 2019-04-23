@@ -7,6 +7,7 @@ CLineMgr* CLineMgr::m_pInstance = nullptr;
 
 CLineMgr::CLineMgr()
 {
+	ZeroMemory(&tPosGround, sizeof(LINEPOS));
 }
 
 
@@ -18,8 +19,10 @@ CLineMgr::~CLineMgr()
 void CLineMgr::Initialize()
 {
 	//LINEPOS tPosArr[4] = { { 100.f, 500.f },{ 300.f, 500.f },{ 500.f, 300.f },{ 700.f, 300.f } };
-	LINEPOS tPosArr[2] = { { 0, WINCY - 50 } ,{ WINCX, WINCY - 50 }};
-	m_listLine.emplace_back(new CLine(LINEINFO(tPosArr[0], tPosArr[1])));
+	tPosGround[0] = { -200, WINCY - 50 };
+	tPosGround[1] = { WINCX+200, WINCY - 50 };
+
+	m_listLine.emplace_back(new CLine(LINEINFO(tPosGround[0], tPosGround[1])));
 
 
 	for (int i = 0; i < BACKGROUNDID::END; ++i)
@@ -32,7 +35,6 @@ void CLineMgr::Initialize()
 			);
 		}
 	}
-
 
 	
 	//m_listLine.emplace_back(new CLine(LINEINFO(tPosArr[1], tPosArr[2])));
@@ -58,10 +60,26 @@ void CLineMgr::Release()
 	m_listLine.clear();
 }
 
+void CLineMgr::UpdateLine(float _fSpeed)
+{
+	for (LINEITER iter = m_listLine.begin(); iter != m_listLine.end(); iter++)
+	{
+		tPosGround[0].fx += _fSpeed;
+		tPosGround[1].fx += _fSpeed;
+		(*iter)->Get_LineInfo().tLeftPoint.fx += _fSpeed;
+		//(*iter)->Get_LineInfo().tLeftPoint.fy += _fSpeed;
+		(*iter)->Get_LineInfo().tRightPoint.fx += _fSpeed;
+		//(*iter)->Get_LineInfo().tRightPoint.fy += _fSpeed;
+
+	}
+
+}
+
 bool CLineMgr::LineCollision(float fInX, float * pOutY , float sizeY)
 {
 	if (m_listLine.empty())
 		return false;
+
 
 	CLine* pTarget = nullptr;
 	for (auto& pLine : m_listLine)
