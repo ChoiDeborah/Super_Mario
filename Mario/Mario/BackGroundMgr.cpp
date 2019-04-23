@@ -52,9 +52,9 @@ void CBackGroundMgr::LateUpdate()
 			pObj->LateUpdate();
 		}
 	}
-	// 
-	CCollisionMgr::CollisionRectExWithPlayer_BACKGROUND(m_Backgroundlist[BACKGROUNDID::ITEM], BACKGROUNDID::ITEM);
-	CCollisionMgr::CollisionRectExWithPlayer_BACKGROUND(m_Backgroundlist[BACKGROUNDID::TILE], BACKGROUNDID::TILE);
+	
+	/*CCollisionMgr::CollisionRectExWithPlayer_BACKGROUND(m_Backgroundlist[BACKGROUNDID::ITEM], BACKGROUNDID::ITEM);
+	CCollisionMgr::CollisionRectExWithPlayer_BACKGROUND(m_Backgroundlist[BACKGROUNDID::TILE], BACKGROUNDID::TILE);*/
 
 
 }

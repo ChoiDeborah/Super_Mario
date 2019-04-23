@@ -8,5 +8,5 @@ namespace OBJID
 
 namespace BACKGROUNDID
 {
-	enum ID {ITEM, TILE, END};
+	enum ID {ITEM, TILE, ITEM_SIZE_UP, ITEM_COIN, ITEM_FLOWER, ITEM_LIFE, END};
 }

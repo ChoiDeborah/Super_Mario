@@ -17,7 +17,7 @@ void CCoin::Initialize()
 	m_tInfo.fCY = 50.f;
 
 	m_tInfo.fX = 200.f;
-	m_tInfo.fY = 300.f;
+	m_tInfo.fY = 500.f;
 	m_fSpeed = 5.f;
 }
 

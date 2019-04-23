@@ -16,8 +16,8 @@ void CSizeUp_Mushroom::Initialize()
 	m_tInfo.fCX = 50.f;
 	m_tInfo.fCY = 50.f;
 
-	m_tInfo.fX = 400.f;
-	m_tInfo.fY = 300.f;
+	m_tInfo.fX = 500.f;
+	m_tInfo.fY = 500.f;
 	m_fSpeed = 5.f;
 }
 
@@ -26,11 +26,21 @@ int CSizeUp_Mushroom::Update()
 	if (m_bIsDead)
 		return OBJ_DEAD;
 
+
+
 	return OBJ_NOEVENT;
 }
 
 void CSizeUp_Mushroom::LateUpdate()
 {
+	CObj::UpdateRect();
+	if (0 >= m_tRect.left ||
+		0 >= m_tRect.top ||
+		WINCX <= m_tRect.right ||
+		WINCY <= m_tRect.bottom)
+	{
+		m_bIsDead = true;
+	}
 }
 
 void CSizeUp_Mushroom::Render(HDC hDC)

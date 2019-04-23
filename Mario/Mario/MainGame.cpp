@@ -8,7 +8,10 @@
 #include "ObjMgr.h"
 #include "CollisionMgr.h"
 #include "BackGroundMgr.h"
-
+#include "Coin.h"
+#include "ItemFlower.h"
+#include "Life_Mushroom.h"
+#include "SizeUp_Mushroom.h"
 
 CMainGame::CMainGame()
 {
@@ -36,6 +39,12 @@ void CMainGame::Initialize()
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::TILE, CAbstractFactory<CTile>::Create(50, 200));
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::TILE, CAbstractFactory<CTile>::Create(100, 200));
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::TILE, CAbstractFactory<CTile>::Create(150, 200));
+
+
+	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_COIN, CAbstractFactory<CCoin>::Create());
+	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_SIZE_UP, CAbstractFactory<CSizeUp_Mushroom>::Create());
+	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_LIFE, CAbstractFactory<CLife_Mushroom>::Create());
+	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_FLOWER, CAbstractFactory<CItemFlower>::Create());
 
 }
 
