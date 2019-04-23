@@ -23,11 +23,14 @@ void CPlayer::Initialize()
 	m_fSpeed = 5.f;
 	m_fAngle = 45.f;
 
-	m_fSpeed = 10.f;
+	m_fSpeed = 3.f;
 	m_fForce = 20.f;
 	m_fTime = 0.f;
+	m_fForce2 = 0.f;
+
 
 	m_bIsJump = false;
+	m_bIsRuning = false;
 }
 
 int CPlayer::Update()
@@ -45,11 +48,25 @@ int CPlayer::Update()
 
 	if (GetAsyncKeyState(VK_LEFT))
 	{
-		m_tInfo.fX -= m_fSpeed;
+		if (m_bIsRuning)
+		{
+			m_tInfo.fX -= (m_fSpeed + m_fForce2);
+		}
+		else
+		{
+			m_tInfo.fX -= m_fSpeed;
+		}
 	}
 	if (GetAsyncKeyState(VK_RIGHT))
 	{
-		m_tInfo.fX += m_fSpeed;
+		if(m_bIsRuning)
+		{
+			m_tInfo.fX += (m_fSpeed + m_fForce2);
+		}
+		else
+		{
+			m_tInfo.fX += m_fSpeed;
+		}
 	}
 
 	if (m_bIsJump)
@@ -73,6 +90,22 @@ int CPlayer::Update()
 		}
 	}
 
+	if (GetAsyncKeyState('Z'))
+	{
+		m_bIsRuning = true;
+	}
+	else
+	{
+		if (m_bIsRuning) {
+			m_bIsRuning = false;
+		
+			m_fForce2 = 0.f;
+		}
+	}
+
+	
+
+
 
 	return OBJ_NOEVENT;
 }
@@ -82,6 +115,27 @@ void CPlayer::LateUpdate()
 	if (m_bIsJump)
 	{
 		Jump();
+	}
+
+	if (m_bIsRuning)
+	{
+		Run();
+	}
+}
+
+
+void CPlayer::Run()
+{
+
+	// z누르면 뛰는 상태가 되고
+	// 뛰는 상태이면 시간 만큼 가속도에 시간을 더해준다.
+	// 일정 속도에 다다르면 속도 증가를 멈추고
+	// 뛰는 상태가 아니면 원래 속도로 되돌려 준다.
+	m_fTime += 0.005;
+
+	if (m_fForce2 <= 3.0f)
+	{
+		m_fForce2 += m_fTime;
 	}
 }
 

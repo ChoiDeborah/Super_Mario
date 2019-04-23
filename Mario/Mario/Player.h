@@ -26,7 +26,7 @@ public:
 
 public:
 	void Jump();
-
+	void Run();
 public:
 	void Set_BulletList(list<CObj*>* plistBullet) { m_plistBullet = plistBullet; }
 	bool IsLine(POINT _P1, POINT _P2);
@@ -38,6 +38,10 @@ private:
 	float m_fForce;
 	float m_fTime;
 	float m_fGuideHeight;
+	bool m_bIsRuning;
+	float m_fForce2;
+
+
 
 	POINT P1;
 	POINT P2;
