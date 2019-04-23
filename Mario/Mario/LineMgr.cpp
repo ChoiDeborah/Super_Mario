@@ -21,17 +21,18 @@ void CLineMgr::Initialize()
 	LINEPOS tPosArr[2] = { { 0, WINCY - 50 } ,{ WINCX, WINCY - 50 }};
 	m_listLine.emplace_back(new CLine(LINEINFO(tPosArr[0], tPosArr[1])));
 
+
 	for (int i = 0; i < BACKGROUNDID::END; ++i)
 	{
-		for (auto& pObj : CBackGroundMgr::Get_Instance()->m_Backgroundlist[i])
+		for (OBJITER iter = CBackGroundMgr::Get_Instance()->m_Backgroundlist[i].begin(); iter != CBackGroundMgr::Get_Instance()->m_Backgroundlist[i].end(); ++iter)
 		{
-			m_listLine.emplace_back(new CLine(
-				LINEINFO(
-					LINEPOS(pObj->Get_LineInfo().tLeftPoint.fx, pObj->Get_LineInfo().tLeftPoint.fy),
-					LINEPOS(pObj->Get_LineInfo().tRightPoint.fx, pObj->Get_LineInfo().tRightPoint.fy)))
+			m_listLine.emplace_back(new CLine(LINEINFO(
+					LINEPOS((*iter)->Get_LineInfo().tLeftPoint.fx, (*iter)->Get_LineInfo().tLeftPoint.fy),
+					LINEPOS((*iter)->Get_LineInfo().tRightPoint.fx, (*iter)->Get_LineInfo().tRightPoint.fy)))
 			);
 		}
 	}
+
 
 	
 	//m_listLine.emplace_back(new CLine(LINEINFO(tPosArr[1], tPosArr[2])));
@@ -86,7 +87,6 @@ bool CLineMgr::LineCollision(float fInX, float * pOutY , float sizeY)
 	*pOutY = ((y2 - y1) / (x2 - x1)) * (fInX - x1) + y1 - sizeY/2;
 	return true;
 
-	`1``
 }
 
 bool CLineMgr::UnderLine(LINEPOS _P1, LINEPOS _P2 , float fX, float fY)

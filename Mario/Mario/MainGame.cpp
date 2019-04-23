@@ -32,7 +32,7 @@ void CMainGame::Initialize()
 	m_hDC = GetDC(g_hWnd);
 
 	CObjMgr::Get_Instance()->AddObject(OBJID::PLAYER, CAbstractFactory<CPlayer>::Create());
-	CLineMgr::Get_Instance()->Initialize();
+	
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM, CAbstractFactory<CItem>::Create(50, 500));
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM, CAbstractFactory<CItem>::Create(100, 500));
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM, CAbstractFactory<CItem>::Create(150, 500));
@@ -46,7 +46,7 @@ void CMainGame::Initialize()
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_SIZE_UP, CAbstractFactory<CSizeUp_Mushroom>::Create());
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_LIFE, CAbstractFactory<CLife_Mushroom>::Create());
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_FLOWER, CAbstractFactory<CItemFlower>::Create());
-
+	CLineMgr::Get_Instance()->Initialize();
 }
 
 void CMainGame::Update()
