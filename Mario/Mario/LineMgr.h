@@ -28,6 +28,8 @@ public:
 	void Release();
 public:
 	bool LineCollision(float fInX, float* pOutY, float sizeY);
+
+	bool UnderLine(LINEPOS _P1, LINEPOS _P2, float fX, float fY);
 private:
 	static CLineMgr* m_pInstance;
 	list<CLine*> m_listLine;

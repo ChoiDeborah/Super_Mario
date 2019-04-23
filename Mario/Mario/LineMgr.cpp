@@ -68,13 +68,15 @@ bool CLineMgr::LineCollision(float fInX, float * pOutY , float sizeY)
 		if (fInX >= pLine->Get_LineInfo().tLeftPoint.fx &&
 			fInX <= pLine->Get_LineInfo().tRightPoint.fx)
 		{
-			pTarget = pLine;
+			
+			if(UnderLine(pLine->Get_LineInfo().tLeftPoint, pLine->Get_LineInfo().tRightPoint, fInX, *pOutY)) 
+			{
+				pTarget = pLine;
+			}
 		}
 	}
 	if (nullptr == pTarget)
 		return false;
-
-	// Outy = ((y2 - y1) / (x2 - x1)) * (InX - x1) + y1;
 
 	float x1 = pTarget->Get_LineInfo().tLeftPoint.fx;
 	float x2 = pTarget->Get_LineInfo().tRightPoint.fx;
@@ -84,5 +86,18 @@ bool CLineMgr::LineCollision(float fInX, float * pOutY , float sizeY)
 	*pOutY = ((y2 - y1) / (x2 - x1)) * (fInX - x1) + y1 - sizeY/2;
 	return true;
 
+	`1``
+}
 
+bool CLineMgr::UnderLine(LINEPOS _P1, LINEPOS _P2 , float fX, float fY)
+{
+	
+	int iResult = (_P1.fx - _P1.fy) / (_P2.fx - _P1.fx) * (fX - _P1.fx) + _P1.fy - fY;
+
+	if (iResult >= 0)
+		return true;
+
+	return false;
+
+	
 }

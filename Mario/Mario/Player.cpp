@@ -27,16 +27,12 @@ void CPlayer::Initialize()
 	m_fAngle = 45.f;
 
 	m_fSpeed = 3.f;
-	m_fForce = 20.f;
-	m_fTime = 0.f;
-	m_fForce2 = 0.f;
-
 
 	m_bIsJump = false;
 	m_bIsRuning = false;
 
 	m_fJumpAccel = 0.f;
-	m_fJumpPower = 15.f;
+	m_fJumpPower = 20.f;
 }
 
 int CPlayer::Update()
@@ -44,13 +40,6 @@ int CPlayer::Update()
 	if (m_bIsDead)
 		return OBJ_DEAD;
 
-	POINT P1 = { 0, WINCY-50 };
-	POINT P2 = { WINCX, WINCY-50 };
-
-	if (m_tInfo.fX >= P1.x && m_tInfo.fX <= P2.x)
-	{
-		m_fGuideHeight = (P2.y - P1.y) / (P2.x - P1.x) * (m_tInfo.fX - P1.x) + P1.y - m_tInfo.fCY / 2;
-	}
 
 	if (GetAsyncKeyState(VK_LEFT))
 	{
@@ -79,32 +68,8 @@ int CPlayer::Update()
 
 	if (GetAsyncKeyState(VK_SPACE))
 	{
-		
-	 	m_bIsJump = true;
-		
+	 	m_bIsJump = true;	
 	}
-
-	/*if (m_bIsJump)
-	{
-		if (m_tInfo.fX >= P1.x && m_tInfo.fX <= P2.x && IsLine(P1, P2))
-			m_bIsJump = false;
-	}
-	else
-	{
-		m_tInfo.fY = m_fGuideHeight;
-	}
-
-	if (m_tInfo.fY >= m_fGuideHeight)
-		m_tInfo.fY = m_fGuideHeight;
-
-	if (GetAsyncKeyState(VK_SPACE))
-	{
-		if (!m_bIsJump)
-		{
-			m_bIsJump = true;
-		}
-	}
-*/
 
 
 	if (GetAsyncKeyState('Z'))
@@ -133,7 +98,6 @@ void CPlayer::LateUpdate()
 	}
 }
 
-
 void CPlayer::Run()
 {
 
@@ -158,17 +122,6 @@ void CPlayer::Render(HDC hDC)
 void CPlayer::Release()
 {
 }
-
-//bool CPlayer::IsLine(POINT _P1, POINT _P2)
-//{
-//	int iResult = (_P1.y - _P1.y) / (_P2.x - _P1.x) * (m_tInfo.fX - _P1.x) + _P1.y - m_tInfo.fY;
-//
-//	if (iResult <= 0)
-//		return true;
-//
-//	return false;
-//
-//}
 
 void CPlayer::IsJumping()
 {
