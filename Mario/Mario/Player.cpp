@@ -35,8 +35,8 @@ int CPlayer::Update()
 	if (m_bIsDead)
 		return OBJ_DEAD;
 
-	POINT P1 = { 0, WINCY };
-	POINT P2 = { WINCX, WINCY };
+	POINT P1 = { 0, WINCY-50 };
+	POINT P2 = { WINCX, WINCY-50 };
 
 	if (m_tInfo.fX >= P1.x && m_tInfo.fX <= P2.x)
 	{

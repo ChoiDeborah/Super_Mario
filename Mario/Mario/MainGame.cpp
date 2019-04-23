@@ -41,6 +41,7 @@ void CMainGame::LateUpdate()
 void CMainGame::Render()
 {
 	Rectangle(m_hDC, 0, 0, WINCX, WINCY);
+	Rectangle(m_hDC, 0, 50, WINCX, WINCY-50);
 	CObjMgr::Get_Instance()->Render(m_hDC);
 }
 
