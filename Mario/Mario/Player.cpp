@@ -98,6 +98,9 @@ int CPlayer::Update()
 
 void CPlayer::LateUpdate()
 {
+	float fy = 0.f;
+	CLineMgr::Get_Instance()->LineCollision(m_tInfo.fX, m_tInfo.fY, &fy, m_tInfo.fCY);
+	
 	IsJumping();
 	if (m_bIsRuning)
 	{
@@ -133,7 +136,7 @@ void CPlayer::Release()
 void CPlayer::IsJumping()
 {
 	float fy = 0.f;
-	bool bIsColl = CLineMgr::Get_Instance()->LineCollision(m_tInfo.fX, &fy, m_tInfo.fCY);
+	bool bIsColl = CLineMgr::Get_Instance()->LineCollision(m_tInfo.fX, m_tInfo.fY, &fy, m_tInfo.fCY);
 
 	// 사용자가 점프를 눌렀을때!
 	if (m_bIsJump)
@@ -154,6 +157,6 @@ void CPlayer::IsJumping()
 	}
 	else if (bIsColl)
 	{
-		m_tInfo.fY = fy;
+			m_tInfo.fY = fy;
 	}
 }

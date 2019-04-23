@@ -28,7 +28,7 @@ public:
 	void Release();
 	void UpdateLine(float _fSpeed);
 public:
-	bool LineCollision(float fInX, float* pOutY, float sizeY);
+	bool LineCollision(float fInX, float fInY, float* pOutY, float sizeY);
 
 	bool UnderLine(LINEPOS _P1, LINEPOS _P2, float fX, float fY);
 private:

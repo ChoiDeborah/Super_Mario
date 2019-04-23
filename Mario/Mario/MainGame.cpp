@@ -37,15 +37,15 @@ void CMainGame::Initialize()
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM, CAbstractFactory<CItem>::Create(100, 500));
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM, CAbstractFactory<CItem>::Create(150, 500));
 
-	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::TILE, CAbstractFactory<CTile>::Create(500, 200));
-	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::TILE, CAbstractFactory<CTile>::Create(600, 200));
-	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::TILE, CAbstractFactory<CTile>::Create(700, 200));
+	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::TILE, CAbstractFactory<CTile>::Create(500, 500));
+	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::TILE, CAbstractFactory<CTile>::Create(600, 500));
+	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::TILE, CAbstractFactory<CTile>::Create(700, 500));
 
 
 	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_COIN, CAbstractFactory<CCoin>::Create(800,200));
-	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_SIZE_UP, CAbstractFactory<CSizeUp_Mushroom>::Create(900,200));
-	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_LIFE, CAbstractFactory<CLife_Mushroom>::Create(1000,200));
-	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_FLOWER, CAbstractFactory<CItemFlower>::Create(1100, 200));
+	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_SIZE_UP, CAbstractFactory<CSizeUp_Mushroom>::Create(900,550));
+	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_LIFE, CAbstractFactory<CLife_Mushroom>::Create(1000, 500));
+	CBackGroundMgr::Get_Instance()->AddObject(BACKGROUNDID::ITEM_FLOWER, CAbstractFactory<CItemFlower>::Create(1100, 500));
 	
 	CLineMgr::Get_Instance()->Initialize();
 }

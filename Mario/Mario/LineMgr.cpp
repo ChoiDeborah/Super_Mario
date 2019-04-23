@@ -67,15 +67,12 @@ void CLineMgr::UpdateLine(float _fSpeed)
 		tPosGround[0].fx += _fSpeed;
 		tPosGround[1].fx += _fSpeed;
 		(*iter)->Get_LineInfo().tLeftPoint.fx += _fSpeed;
-		//(*iter)->Get_LineInfo().tLeftPoint.fy += _fSpeed;
 		(*iter)->Get_LineInfo().tRightPoint.fx += _fSpeed;
-		//(*iter)->Get_LineInfo().tRightPoint.fy += _fSpeed;
-
 	}
 
 }
 
-bool CLineMgr::LineCollision(float fInX, float * pOutY , float sizeY)
+bool CLineMgr::LineCollision(float fInX, float fInY, float * pOutY , float sizeY)
 {
 	if (m_listLine.empty())
 		return false;
@@ -87,8 +84,7 @@ bool CLineMgr::LineCollision(float fInX, float * pOutY , float sizeY)
 		if (fInX >= pLine->Get_LineInfo().tLeftPoint.fx &&
 			fInX <= pLine->Get_LineInfo().tRightPoint.fx)
 		{
-			
-			if(UnderLine(pLine->Get_LineInfo().tLeftPoint, pLine->Get_LineInfo().tRightPoint, fInX, *pOutY)) 
+			if(UnderLine(pLine->Get_LineInfo().tLeftPoint, pLine->Get_LineInfo().tRightPoint, fInX, fInY))
 			{
 				pTarget = pLine;
 			}
@@ -112,7 +108,7 @@ bool CLineMgr::UnderLine(LINEPOS _P1, LINEPOS _P2 , float fX, float fY)
 	
 	int iResult = (_P1.fx - _P1.fy) / (_P2.fx - _P1.fx) * (fX - _P1.fx) + _P1.fy - fY;
 
-	if (iResult >= 0)
+	if (iResult < 0)
 		return true;
 
 	return false;
