@@ -34,6 +34,9 @@
     <Filter Include="01.Obj\Item">
       <UniqueIdentifier>{49b5a6a8-dda6-4ea7-85d2-ea19bd7d391d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Obj\BackGround">
+      <UniqueIdentifier>{e205c185-81f5-444c-b92f-380cc4e5352c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -96,6 +99,12 @@
     <ClInclude Include="Item.h">
       <Filter>01.Obj\Item</Filter>
     </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>01.Obj\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGroundMgr.h">
+      <Filter>97.Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mario.cpp">
@@ -116,9 +125,6 @@
     <ClCompile Include="Item.cpp">
       <Filter>01.Obj\Item</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionMgr.cpp">
-      <Filter>97.Manager</Filter>
-    </ClCompile>
     <ClCompile Include="ObjMgr.cpp">
       <Filter>97.Manager</Filter>
     </ClCompile>
@@ -130,6 +136,15 @@
     </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>01.Obj\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>01.Obj\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionMgr.cpp">
+      <Filter>97.Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGroundMgr.cpp">
+      <Filter>97.Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
