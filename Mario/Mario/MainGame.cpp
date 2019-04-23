@@ -10,6 +10,7 @@
 CMainGame::CMainGame()
 {
 	//11
+	//하하하 되는건가?
 }
 
 
