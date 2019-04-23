@@ -32,13 +32,13 @@ int CItem::Update()
 void CItem::LateUpdate()
 {
 	CObj::UpdateRect();
-	if (0 >= m_tRect.left ||
+	/*if (0 >= m_tRect.left ||
 		0 >= m_tRect.top ||
 		WINCX <= m_tRect.right ||
 		WINCY <= m_tRect.bottom)
 	{
 		m_bIsDead = true;
-	}
+	}*/
 }
 
 void CItem::Render(HDC hDC)

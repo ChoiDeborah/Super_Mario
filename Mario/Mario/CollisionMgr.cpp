@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "CollisionMgr.h"
 #include "Obj.h"
+#include "ObjMgr.h"
 
 CCollisionMgr::CCollisionMgr()
 {
@@ -72,6 +73,77 @@ void CCollisionMgr::CollisionSphere(OBJLIST & DestList, OBJLIST & SourList, OBJI
 			}
 		}
 	}
+}
+
+void CCollisionMgr::CollisionRectExWithPlayer_OBJ(OBJLIST & ObjtList, OBJID::ID eOBJID)
+{
+	float fMoveX = 0.f, fMoveY = 0.f;
+
+	CObj * pPlayer = CObjMgr::Get_Instance()->Get_Player();
+
+	if (pPlayer != nullptr) 
+	{
+		for (auto& pObj : ObjtList)
+		{
+
+			if (CheckRect(pObj, CObjMgr::Get_Instance()->Get_Player(), &fMoveX, &fMoveY))
+			{
+				float x = pPlayer->Get_Info().fX;
+				float y = pPlayer->Get_Info().fY;
+
+				if (fMoveX > fMoveY)
+				{
+					if (y < pObj->Get_Info().fY)
+						fMoveY *= -1.f;
+
+					pPlayer->Set_Pos(x, y + fMoveY);
+				}
+				else
+				{
+					if (x < pObj->Get_Info().fX)
+						fMoveX *= -1.f;
+
+					pPlayer->Set_Pos(x + fMoveX, y);
+				}
+			}
+
+		}
+	}
+
+}
+
+void CCollisionMgr::CollisionRectExWithPlayer_BACKGROUND(OBJLIST & ObjtList, BACKGROUNDID::ID eOBJID)
+{
+	float fMoveX = 0.f, fMoveY = 0.f;
+	CObj * pPlayer = CObjMgr::Get_Instance()->Get_Player();
+
+	if (pPlayer != nullptr)
+	{
+		for (auto& pObj : ObjtList)
+		{
+			if (CheckRect(pObj, CObjMgr::Get_Instance()->Get_Player(), &fMoveX, &fMoveY))
+			{
+				float x = pPlayer->Get_Info().fX;
+				float y = pPlayer->Get_Info().fY;
+
+				if (fMoveX > fMoveY)
+				{
+					if (y < pObj->Get_Info().fY)
+						fMoveY *= -1.f;
+
+					pPlayer->Set_Pos(x, y + fMoveY);
+				}
+				else
+				{
+					if (x < pObj->Get_Info().fX)
+						fMoveX *= -1.f;
+
+					pPlayer->Set_Pos(x + fMoveX, y);
+				}
+			}
+		}
+	}
+
 }
 
 bool CCollisionMgr::CheckSphere(CObj * pDest, CObj * pSour)

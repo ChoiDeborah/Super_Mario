@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "BackGroundMgr.h"
 
 
 CPlayer::CPlayer()
@@ -54,6 +55,7 @@ int CPlayer::Update()
 		}
 		else
 		{
+			CBackGroundMgr::Get_Instance()->Scroll_BackGround(m_fSpeed);
 			m_tInfo.fX -= m_fSpeed;
 		}
 	}
@@ -65,6 +67,7 @@ int CPlayer::Update()
 		}
 		else
 		{
+			CBackGroundMgr::Get_Instance()->Scroll_BackGround(-m_fSpeed);
 			m_tInfo.fX += m_fSpeed;
 		}
 	}

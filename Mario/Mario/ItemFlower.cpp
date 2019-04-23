@@ -37,6 +37,10 @@ void CItemFlower::Render(HDC hDC)
 {
 	CObj::UpdateRect();
 	Rectangle(hDC, m_tRect.left, m_tRect.top, m_tRect.right, m_tRect.bottom);
+
+	TCHAR szName[32] = {};
+	swprintf_s(szName, L"╡июс");
+	TextOut(hDC, m_tInfo.fX, m_tInfo.fY, szName, lstrlen(szName));
 }
 
 void CItemFlower::Release()

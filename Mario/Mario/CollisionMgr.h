@@ -9,7 +9,8 @@ public:
 	static void CollisionRect(OBJLIST& DestList, OBJLIST& SourList, OBJID::ID eDestID, OBJID::ID eSourID);
 	static void CollisionRectEX(OBJLIST& DestList, OBJLIST& SourList, OBJID::ID eDestID, OBJID::ID eSourID);
 	static void CollisionSphere(OBJLIST& DestList, OBJLIST& SourList, OBJID::ID eDestID, OBJID::ID eSourID);
-
+	static void CollisionRectExWithPlayer_OBJ(OBJLIST& ObjtList, OBJID::ID eOBJID);
+	static void CollisionRectExWithPlayer_BACKGROUND(OBJLIST& ObjtList, BACKGROUNDID::ID eOBJID);
 private:
 	static bool CheckSphere(CObj* pDest, CObj* pSour);
 	static bool CheckRect(CObj* pDest, CObj* pSour, float* pMoveX, float* pMoveY);

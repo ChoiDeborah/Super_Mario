@@ -37,6 +37,10 @@ void CLife_Mushroom::Render(HDC hDC)
 {
 	CObj::UpdateRect();
 	Rectangle(hDC, m_tRect.left, m_tRect.top, m_tRect.right, m_tRect.bottom);
+
+	TCHAR szName[32] = {};
+	swprintf_s(szName, L"1up");
+	TextOut(hDC, m_tInfo.fX, m_tInfo.fY, szName, lstrlen(szName));
 }
 
 void CLife_Mushroom::Release()

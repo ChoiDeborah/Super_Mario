@@ -13,6 +13,12 @@ CTile::~CTile()
 
 void CTile::Initialize()
 {
+	m_tInfo.fCX = 50.f;
+	m_tInfo.fCY = 50.f;
+
+	m_tInfo.fX = 400.f;
+	m_tInfo.fY = 300.f;
+	m_fSpeed = 5.f;
 }
 
 int CTile::Update()
@@ -26,13 +32,13 @@ int CTile::Update()
 void CTile::LateUpdate()
 {
 	CObj::UpdateRect();
-	if (0 >= m_tRect.left ||
+	/*if (0 >= m_tRect.left ||
 		0 >= m_tRect.top ||
 		WINCX <= m_tRect.right ||
 		WINCY <= m_tRect.bottom)
 	{
 		m_bIsDead = true;
-	}
+	}*/
 }
 
 void CTile::Render(HDC hDC)

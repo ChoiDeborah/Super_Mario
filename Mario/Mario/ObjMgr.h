@@ -22,7 +22,12 @@ public:
 		}
 	}
 public:
-	CObj* Get_Player() { return m_Objlist[OBJID::PLAYER].front(); }
+	CObj* Get_Player() 
+	{ 
+		if(m_Objlist[OBJID::PLAYER].front())
+			return m_Objlist[OBJID::PLAYER].front(); 
+		else return nullptr;
+	}
 	CObj* Get_Target(CObj* pSrc, OBJID::ID eID);
 public:
 	void AddObject(OBJID::ID eID, CObj* pObj);

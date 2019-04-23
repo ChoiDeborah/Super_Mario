@@ -27,7 +27,7 @@ public:
 
 public:
 	void AddObject(BACKGROUNDID::ID eID, CObj* pObj);
-	void Update();
+	int Update();
 	void LateUpdate();
 	void Render(HDC hDC);
 	void Release();
