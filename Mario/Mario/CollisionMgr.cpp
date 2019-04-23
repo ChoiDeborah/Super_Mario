@@ -2,7 +2,7 @@
 #include "CollisionMgr.h"
 #include "Obj.h"
 #include "ObjMgr.h"
-
+#include "Player.h"
 CCollisionMgr::CCollisionMgr()
 {
 }
@@ -23,6 +23,140 @@ void CCollisionMgr::CollisionRect(OBJLIST & DestList, OBJLIST & SourList, OBJID:
 			{
 				pDst->Set_Dead();
 				pSrc->Set_Dead();
+			}
+		}
+	}
+}
+
+void CCollisionMgr::CollisionRect_Coin(OBJLIST & DestList, OBJLIST & SourList, BACKGROUNDID::ID eDestID, OBJID::ID eSourID)
+{
+	RECT rc = {};
+	for (auto& pDst : DestList)
+	{
+		for (auto& pSrc : SourList)
+		{
+			if (IntersectRect(&rc, &pDst->Get_Rect(), &pSrc->Get_Rect()))
+			{
+				pDst->Set_Dead();
+				pSrc->Set_Coin();
+			}
+		}
+	}
+}
+
+void CCollisionMgr::CollisionRect_SizeUp(OBJLIST & DestList, OBJLIST & SourList, BACKGROUNDID::ID eDestID, OBJID::ID eSourID)
+{
+	RECT rc = {};
+	for (auto& pDst : DestList)
+	{
+		for (auto& pSrc : SourList)
+		{
+			if (IntersectRect(&rc, &pDst->Get_Rect(), &pSrc->Get_Rect()))
+			{
+				pDst->Set_Dead();
+				dynamic_cast<CPlayer*>(pSrc)->Set_Player_SizeUP();
+			}
+		}
+	}
+}
+
+void CCollisionMgr::CollisionRectEX(OBJLIST & DestList, OBJLIST & SourList, BACKGROUNDID::ID eDestID, OBJID::ID eSourID)
+{
+	float fMoveX = 0.f, fMoveY = 0.f;
+	for (auto& pDst : DestList)
+	{
+		for (auto& pSrc : SourList)
+		{
+			if (CheckRect(pDst, pSrc, &fMoveX, &fMoveY))
+			{
+				float x = pSrc->Get_Info().fX;
+				float y = pSrc->Get_Info().fY;
+
+				if (fMoveX > fMoveY)
+				{
+					if (y < pDst->Get_Info().fY)
+						fMoveY *= -1.f;
+
+					if (pSrc->Get_Rect().bottom <= pDst->Get_Rect().top)
+						pSrc->Set_Pos(x, pDst->Get_Rect().top - fMoveY);
+					else
+						pSrc->Set_Pos(x, y + fMoveY);
+
+				}
+				else
+				{
+					if (x < pDst->Get_Info().fX)
+						fMoveX *= -1.f;
+
+					pSrc->Set_Pos(x + fMoveX, y);
+				}
+			}
+		}
+	}
+}
+
+void CCollisionMgr::CollisionRect_SizeUp_And_Bullet(OBJLIST & DestList, OBJLIST & SourList, BACKGROUNDID::ID eDestID, OBJID::ID eSourID)
+{
+	RECT rc = {};
+	for (auto& pDst : DestList)
+	{
+		for (auto& pSrc : SourList)
+		{
+			if (IntersectRect(&rc, &pDst->Get_Rect(), &pSrc->Get_Rect()))
+			{
+				pDst->Set_Dead();
+				dynamic_cast<CPlayer*>(pSrc)->Set_Player_SizeUP();
+			}
+		}
+	}
+}
+
+void CCollisionMgr::CollisionRect_LifeUp(OBJLIST & DestList, OBJLIST & SourList, BACKGROUNDID::ID eDestID, OBJID::ID eSourID)
+{
+	RECT rc = {};
+	for (auto& pDst : DestList)
+	{
+		for (auto& pSrc : SourList)
+		{
+			if (IntersectRect(&rc, &pDst->Get_Rect(), &pSrc->Get_Rect()))
+			{
+				pDst->Set_Dead();
+				pSrc->Set_Life();
+			}
+		}
+	}
+}
+
+void CCollisionMgr::CollisionRect_LifeDamege(OBJLIST & DestList, OBJLIST & SourList, BACKGROUNDID::ID eDestID, OBJID::ID eSourID)
+{
+	RECT rc = {};
+	for (auto& pDst : DestList)
+	{
+		for (auto& pSrc : SourList)
+		{
+			if (IntersectRect(&rc, &pDst->Get_Rect(), &pSrc->Get_Rect()))
+			{
+				pSrc->Set_Life_Damege();
+				pSrc->Set_Player_Damege();
+			}
+		}
+	}
+}
+
+void CCollisionMgr::CollisionRect_Tile(OBJLIST & DestList, OBJLIST & SourList, BACKGROUNDID::ID eDestID, OBJID::ID eSourID)
+{
+	RECT rc = {};
+	float x = DestList.front()->Get_Info().fX;
+	float y = DestList.front()->Get_Info().fY - 10.f;
+
+	for (auto& pDst : DestList)
+	{
+		for (auto& pSrc : SourList)
+		{
+			if (IntersectRect(&rc, &pDst->Get_Rect(), &pSrc->Get_Rect()))
+			{
+				pDst->Set_Pos(x, y);
+				pDst->Set_Coin();
 			}
 		}
 	}

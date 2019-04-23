@@ -26,6 +26,9 @@ int CCoin::Update()
 	if (m_bIsDead)
 		return OBJ_DEAD;
 
+
+	m_tInfo.fY = 500.f;
+
 	return OBJ_NOEVENT;
 }
 

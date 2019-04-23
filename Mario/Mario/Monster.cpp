@@ -33,14 +33,14 @@ int CMonster::Update()
 
 void CMonster::LateUpdate()
 {
-	CObj::UpdateRect();
-	if (0 >= m_tRect.left ||
-		0 >= m_tRect.top ||
-		WINCX <= m_tRect.right ||
-		WINCY <= m_tRect.bottom)
-	{
-		m_bIsDead = true;
-	}
+	//CObj::UpdateRect();
+	//if (0 >= m_tRect.left ||
+	//	0 >= m_tRect.top ||
+	//	WINCX <= m_tRect.right ||
+	//	WINCY <= m_tRect.bottom)
+	//{
+	//	m_bIsDead = true;
+	//}
 }
 
 void CMonster::Render(HDC hDC)

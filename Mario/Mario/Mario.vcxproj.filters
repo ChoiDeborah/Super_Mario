@@ -55,6 +55,12 @@
     <Filter Include="02.Line">
       <UniqueIdentifier>{ec611790-8405-472d-a9a6-646d51fc8687}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Obj\Item\ItemTile">
+      <UniqueIdentifier>{da0f304c-97d2-4599-a43e-cde97859fcbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Obj\Item\ItemTile\CoinTile">
+      <UniqueIdentifier>{1678d5bd-61f8-4425-a241-350c82ef7386}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -144,6 +150,9 @@
     <ClInclude Include="KeyMgr.h">
       <Filter>97.Manager</Filter>
     </ClInclude>
+    <ClInclude Include="CoinTile.h">
+      <Filter>01.Obj\Item\ItemTile\CoinTile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mario.cpp">
@@ -205,6 +214,9 @@
     </ClCompile>
     <ClCompile Include="LineMgr.cpp">
       <Filter>97.Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CoinTile.cpp">
+      <Filter>01.Obj\Item\ItemTile\CoinTile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

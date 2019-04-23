@@ -55,9 +55,15 @@ void CMainGame::Update()
 	CObjMgr::Get_Instance()->Update();
 	CBackGroundMgr::Get_Instance()->Update();
 
+
 	// 충돌체크 
-	// 
-	//
+	//CCollisionMgr::CollisionRect_Coin(CBackGroundMgr::Get_Instance()->m_Backgroundlist[BACKGROUNDID::ITEM_COIN], CObjMgr::Get_Instance()->m_Objlist[OBJID::PLAYER], BACKGROUNDID::ITEM_COIN, OBJID::PLAYER);
+	CCollisionMgr::CollisionRectEX(CBackGroundMgr::Get_Instance()->m_Backgroundlist[BACKGROUNDID::ITEM_COIN], CObjMgr::Get_Instance()->m_Objlist[OBJID::PLAYER], BACKGROUNDID::ITEM_COIN, OBJID::PLAYER);
+	CCollisionMgr::CollisionRect_SizeUp(CBackGroundMgr::Get_Instance()->m_Backgroundlist[BACKGROUNDID::ITEM_SIZE_UP], CObjMgr::Get_Instance()->m_Objlist[OBJID::PLAYER], BACKGROUNDID::ITEM_SIZE_UP, OBJID::PLAYER);
+	CCollisionMgr::CollisionRect_SizeUp_And_Bullet(CBackGroundMgr::Get_Instance()->m_Backgroundlist[BACKGROUNDID::ITEM_FLOWER], CObjMgr::Get_Instance()->m_Objlist[OBJID::PLAYER], BACKGROUNDID::ITEM_FLOWER, OBJID::PLAYER);
+	CCollisionMgr::CollisionRect_Tile(CBackGroundMgr::Get_Instance()->m_Backgroundlist[BACKGROUNDID::ITEM_COIN], CObjMgr::Get_Instance()->m_Objlist[OBJID::PLAYER], BACKGROUNDID::ITEM_COIN, OBJID::PLAYER);
+
+
 	
 }
 
@@ -65,13 +71,17 @@ void CMainGame::LateUpdate()
 {
 	CObjMgr::Get_Instance()->LateUpdate();
 	CBackGroundMgr::Get_Instance()->LateUpdate();
-
 }
 
 void CMainGame::Render()
 {
 	Rectangle(m_hDC, 0, 0, WINCX, WINCY);
 	Rectangle(m_hDC, 0, 50, WINCX, WINCY-50);
+
+	TCHAR szName[32] = {};
+	swprintf_s(szName, L"점수 : %d", CObjMgr::Get_Instance()->Get_Player()->Get_Coin());
+	TextOut(m_hDC, 100.f, 100.f, szName, lstrlen(szName));
+
 	CObjMgr::Get_Instance()->Render(m_hDC);
 	CBackGroundMgr::Get_Instance()->Render(m_hDC);
 }

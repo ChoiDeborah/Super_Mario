@@ -34,6 +34,10 @@ public:
 public:
 	void IsJumping();
 	//void KeyCheck();
+	void Set_Player_SizeUP()
+	{
+		m_tInfo.fCY += 30.f;
+	}
 
 private:
 	list<CObj*>* m_plistBullet;

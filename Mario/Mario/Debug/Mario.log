@@ -1,4 +1,9 @@
-﻿  Player.cpp
-c:\users\administrator.jusin-20180206t\source\repos\choideborah\super_mario\mario\mario\player.cpp(88): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+﻿  MainGame.cpp
+c:\users\administrator.jusin-20180206t\source\repos\choideborah\super_mario\mario\mario\maingame.cpp(83): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CollisionMgr.cpp
+  코드를 생성하고 있습니다...
+  건너뛰고 있습니다... (관련된 변경 내용 없음)
+  ObjMgr.cpp
+  BackGroundMgr.cpp
   Mario.vcxproj -> C:\Users\Administrator.JUSIN-20180206T\Source\Repos\ChoiDeborah\Super_Mario\Mario\Debug\Mario.exe
   Mario.vcxproj -> C:\Users\Administrator.JUSIN-20180206T\Source\Repos\ChoiDeborah\Super_Mario\Mario\Debug\Mario.pdb (Full PDB)

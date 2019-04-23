@@ -35,8 +35,11 @@ public:
 	void LateUpdate();
 	void Render(HDC hDC);
 	void Release();
+
+public:
+	OBJLIST m_Objlist[OBJID::END];
 private:
 	static CObjMgr* m_pInstance;
-	OBJLIST m_Objlist[OBJID::END];
+	
 };
 
